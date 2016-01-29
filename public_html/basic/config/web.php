@@ -5,6 +5,7 @@ $modules = require(__DIR__ . '/modules.php');
 
 $config = [
     'id' => 'basic',
+    'homeUrl' => '/',
     'basePath' => dirname(__DIR__),
     'language' => 'ru',
     'bootstrap' => ['log', 'qa'],
@@ -50,6 +51,19 @@ $config = [
                     ],
                 ],
             ],
+        ],
+        'urlManager' => [
+            'baseUrl' => '/',
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                '' => 'qa/default/index',
+                'answered' => 'qa/default/answered',
+                'unanswered' => 'qa/default/unanswered',
+                'ask' => 'qa/default/ask',
+                'view/<id>-<alias>' => 'qa/default/view',
+                'view/<id>' => 'qa/default/view',
+            ]
         ]
     ],
     'params' => $params,

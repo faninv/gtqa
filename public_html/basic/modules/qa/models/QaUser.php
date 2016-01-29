@@ -26,8 +26,7 @@ class QaUser extends \yii\db\ActiveRecord
     {
         return [
             [['username'], 'required'],
-            [['username'], 'string', 'max' => 255],
-            [['username'], 'unique']
+            [['username'], 'string', 'max' => 255]
         ];
     }
 

@@ -15,6 +15,7 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
+use yii\helpers\Url;
 
 class DefaultController extends BaseQaDefaultController
 {
@@ -126,7 +127,7 @@ class DefaultController extends BaseQaDefaultController
             }
 
             Yii::$app->session->setFlash('questionFormSubmitted');
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(Url::to(['view', 'id' => $model->id, 'alias' => $model->alias]));
         } else {
             return $this->render('ask', compact(['model', 'userModel']));
         }
@@ -204,7 +205,7 @@ class DefaultController extends BaseQaDefaultController
 
         if ($model->save()) {
             Yii::$app->session->setFlash('answerFormSubmitted');
-            return $this->redirect(['view', 'id' => $question->id, 'alias' => $question->alias]);
+            return $this->redirect(Url::to(['view', 'id' => $question->id, 'alias' => $question->alias]));
         } else {
             return $this->render('answer', compact('model', 'question', 'userModel'));
         }
