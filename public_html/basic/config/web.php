@@ -49,12 +49,6 @@ $config = [
                         '@artkost/qa/views', // Default
                     ],
                 ],
-
-
-
-//                    [
-//                    '@artkost/qa/views' => '@app/modules/qa/views'
-//                ],
             ],
         ]
     ],
